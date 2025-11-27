@@ -1,40 +1,48 @@
-import cors from 'cors'
-import express from 'express'
-import dotenv from 'dotenv'
-import { productRouter } from './Routers/productRouter'
-import mongoose from 'mongoose'
-import seedRouter from './Routers/seedRouter'
-import { userRouter } from './Routers/userRouter'
-dotenv.config()
+import cors from 'cors';
+import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import { productRouter } from './Routers/productRouter';
+import seedRouter from './Routers/seedRouter';
+import { userRouter } from './Routers/userRouter';
 
-const MONGODB_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/tsmernamazonadb'
-mongoose.set('strictQuery', true)
+dotenv.config();
 
-mongoose.connect(MONGODB_URI)
-  .then(() => {
-    console.log('connected to mongodb')
-  })
-  .catch(() => {
-    console.log('error mongodb')
-  })
-const app = express()
-app.use(
-    cors({
-        credentials:true,
-        origin:['http://localhost:5173'],
-    })
-)
+const MONGODB_URI = process.env.MONGODB_URI;
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+if (!MONGODB_URI) {
+  console.error('Erreur : MONGODB_URI non défini dans le fichier .env');
+  process.exit(1);
+}
 
+// Options recommandées pour MongoDB Atlas
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
-app.use('/api/products',productRouter)
-app.use('/api/seed',seedRouter)
-app.use('/api/users', userRouter)
+mongoose.set('strictQuery', true);
 
-const PORT=4000
-app.listen(PORT,()=> {
-    console.log(`server started at http://localhost:${PORT}`)
-})
+mongoose.connect(MONGODB_URI, mongooseOptions)
+  .then(() => console.log('✅ Connected to MongoDB Atlas'))
+  .catch((err) => console.error('❌ Error connecting to MongoDB:', err));
+
+const app = express();
+
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:5173'], // frontend URL
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/products', productRouter);
+app.use('/api/seed', seedRouter);
+app.use('/api/users', userRouter);
+
+const PORT = 5001;
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`);
+});
+
