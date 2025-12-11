@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "echo \"TP Académique - Tests Frontend\" "test": "echo 'Tests frontend - TP Académique' && exit 0""test": "echo 'Tests frontend - TP Académique' && exit 0" exit 0",
+    "test": "echo 'TP Académique - Tests Frontend' && exit 0"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.8.1",
@@ -15,18 +15,15 @@
     "@tanstack/react-query-devtools": "^5.66.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
-    "cors": "^2.8.5",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-router-bootstrap": "^0.26.3",
     "react-router-dom": "^7.1.5",
-    "react-toastify": "^11.0.3",
-    "typescript": "^4.9.5"
+    "react-toastify": "^11.0.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
@@ -37,8 +34,7 @@
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
-    "globals": "^15.14.0",
-    "typescript-eslint": "^8.22.0",
+    "typescript": "^4.9.5",
     "vite": "^6.1.0"
   }
 }
