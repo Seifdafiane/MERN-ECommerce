@@ -1,0 +1,11 @@
+name: Simple CI Test
+
+on: [push]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 CI Pipeline fonctionne!"
+      - run: echo "Frontend port: 5173"
+      - run: echo "Backend port: 5001"

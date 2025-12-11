@@ -1,0 +1,12 @@
+name: Premier Test CI
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from GitHub Actions!"
+      - run: echo "Mon projet MERN a:"
+      - run: echo "- Frontend sur port 5173"
+      - run: echo "- Backend sur port 5001"
