@@ -1,12 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "API backend pour MERN ECommerce - TP Académique",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --files src/index.ts",
     "build": "tsc",
-    "test": "echo \"TP Académique - Tests Backend\" && exit 0",
+    "test": "echo \"TP Académique - Tests Backend\" && exit 0"
   },
   "keywords": [],
   "author": "",
