@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  OWNER: Seifdafiane  # REMPLACE par ton username GitHub réel
+  OWNER: seifdafiane  # REMPLACE par ton username GitHub réel
   BACKEND_IMAGE: mern-backend
   FRONTEND_IMAGE: mern-frontend
   BACKEND_PORT: 5001
